@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "7b2b226aa5700436800e",
   "position": {
-    "x": 1135.7939914163089,
-    "y": 93.39055793991416,
+    "x": 1135.5223880597014,
+    "y": 109.85074626865671,
     "z": 0,
-    "height": 179.91416309012874,
-    "width": 144.206008583691,
+    "height": 164.77611940298507,
+    "width": 144.47761194029852,
     "tabOrder": 4000
   },
   "visual": {
@@ -110,5 +110,23 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "f0a50bdca25595344a2f",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Calendario"
+              }
+            },
+            "Property": "Año"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

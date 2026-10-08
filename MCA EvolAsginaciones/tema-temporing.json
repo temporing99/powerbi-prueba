@@ -1,0 +1,20 @@
+{
+  "name": "Temporing Moderno",
+  "dataColors": ["#F26B3A", "#1F3A93", "#2E9BF0", "#9AA5B1", "#2E9E6B"],
+  "background": "#FFFFFF",
+  "foreground": "#2B2F36",
+  "tableAccent": "#1F3A93",
+  "visualStyles": {
+    "*": {
+      "*": {
+        "border": [{ "show": true, "radius": 10, "color": "#E3E6EA" }],
+        "title": [{
+          "show": true,
+          "fontFamily": "Segoe UI Semibold",
+          "fontSize": 14,
+          "fontColor": { "solid": { "color": "#2B2F36" } }
+        }]
+      }
+    }
+  }
+}
