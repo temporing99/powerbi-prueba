@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Evolución AsignacionesMCA Pru 2026"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "a526fea2-2e8a-4102-8341-e84a5853e5d9"
+  }
+}

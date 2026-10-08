@@ -1,0 +1,139 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "a5ce10a21c11b3e18165",
+  "position": {
+    "x": 34.761945175252478,
+    "y": 139.04778070100991,
+    "z": 5000,
+    "height": 221.31771761577414,
+    "width": 979.1281224362782,
+    "tabOrder": 5000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Duncontra"
+                    }
+                  },
+                  "Property": "Dun TrabActivos"
+                }
+              },
+              "queryRef": "Duncontra.Dun TrabActivos",
+              "nativeQueryRef": "Dun TrabActivos"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Duncontra"
+                    }
+                  },
+                  "Property": "ctcliente"
+                }
+              },
+              "queryRef": "Sum(Duncontra.ctcliente)",
+              "nativeQueryRef": "ctcliente1"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DunClien"
+                    }
+                  },
+                  "Property": "clnombre"
+                }
+              },
+              "queryRef": "DunClien.clnombre",
+              "nativeQueryRef": "clnombre"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Duncontra"
+                    }
+                  },
+                  "Property": "cttrabajador"
+                }
+              },
+              "queryRef": "Duncontra.cttrabajador",
+              "nativeQueryRef": "cttrabajador"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DunTrabaj"
+                    }
+                  },
+                  "Property": "trnombrecompleto"
+                }
+              },
+              "queryRef": "DunTrabaj.trnombrecompleto",
+              "nativeQueryRef": "trnombrecompleto"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DunTrabaj"
+                    }
+                  },
+                  "Property": "Telefono"
+                }
+              },
+              "queryRef": "DunTrabaj.Telefono",
+              "nativeQueryRef": "Telefono"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DunTrabaj"
+                    }
+                  },
+                  "Property": "tremail"
+                }
+              },
+              "queryRef": "DunTrabaj.tremail",
+              "nativeQueryRef": "tremail"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Duncontra"
+                  }
+                },
+                "Property": "cttrabajador"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

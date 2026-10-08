@@ -1,0 +1,58 @@
+table MCANCentros
+	lineageTag: 50210bdd-2c94-4e52-8e59-7fc1f7554cba
+
+	column Id
+		dataType: int64
+		formatString: 0
+		lineageTag: c976a2c7-ebca-4055-b698-f19441496138
+		summarizeBy: none
+		sourceColumn: Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column Sucursal
+		dataType: int64
+		formatString: 0
+		lineageTag: eec352fd-ea7b-4e66-8619-f388e71c7b45
+		summarizeBy: none
+		sourceColumn: Sucursal
+
+		annotation SummarizationSetBy = Automatic
+
+	column Texto
+		dataType: string
+		lineageTag: f40e3f8b-9dad-42ed-b5c1-58298c9610be
+		summarizeBy: none
+		sourceColumn: Texto
+
+		annotation SummarizationSetBy = Automatic
+
+	column Nombre
+		dataType: string
+		lineageTag: 315773cc-cdee-4cd2-a91b-e07dab08e03f
+		summarizeBy: none
+		sourceColumn: Nombre
+
+		annotation SummarizationSetBy = Automatic
+
+	column Delegado
+		dataType: string
+		lineageTag: c92d4826-c667-44bb-a9d8-9acceba3bf96
+		summarizeBy: none
+		sourceColumn: Delegado
+
+		annotation SummarizationSetBy = Automatic
+
+	partition MCANCentros-cee15e2a-3e12-4d5a-9f7e-c1b206d8d1a9 = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("lVVbcuMgELzKlL9TLvkhO/4cSYTgQuAFSR9K5S65Qs6Ui+00EMfJ2rvrD5qRNMBMTzN6eVlUq8XDAqNakXGdGE3rYI1xCIbl2ceWAz2r4Nh1al68PsiqtXzAqNb07ONQlsFUVuV1R0tm/jUaFTqfF23kLUa1IR3YiYXJW1kR5eHE4p09t/KIUW3JspvFwsTBDwo78yS7Uhw5fMZTy2uMqqZZGzFmPRPmo4pjzD47ecSodtQzMhUMBkbwYugS5UFeYFQHCmpEYGWyPAamxofAecdVBe4y0In7U0qiP1nvQEBUQRtPmoOckjdfgbMC8mECBTx9vKUYIlPgj3eVPZF+AZpUK4ag1IWD8ThHdcFTI7S0ZWukX4Big7QiN9wpaxNlymY3MFCAtELlBPlJnSst8bZSwOS8h18GimpKSU3GWqTX09FHRSdvSwCP8MtAE+NUQeXapIbe6FFZYqc/AwHHBWiyXXa33HmbaqLHuWdHyXcNgRZAfVOBObD2M5P5XuZ1kmYGagzCEGwYpFkflGPqjCrF3iRJZhBRhCGpIgzil2gz2nHMmtygFgVocE9iDMqJ1hN10djJyM7Kai613oDkAsQWUQq27JKGZfLOFE8wXIAmo0EF5PhZ5YuKbMBvAdLmCKLM0buv5NhO52uxhTYLSHo2ZWdZc06z7LkFsQXk+CEdLxSkullhwwxKl5u5BbEFqB8DNhpDLrGEaUpxa3gUoNbDjTGPH++ckmdSJvh8fl3dZJZYOkQW/BWG6+1V3i4W/cHfId3uDNQq8CY4hMTNU+uXZBrcwcxfvf93W6lXt6MPSi+F5xvR3yjlRfjXSgqxFqCYmqjggNaczhkjyEXeSnMpxubOVlLXd93k+vA3TTRnUWxTV89A7RC+uDczSMma9NRLBxACcyy73R1K2u3/S+9Ir4DIJvGRkKVNUMtxOHfhPfYqQH2iTvBGqHsooQDhwqCJmdM4t56vNZ/d6p7UEET17fcVlnI3l1d/YnVq8Nca94W6fjbwXar4jY58sS535rQEKzCqx5/SX99oinhfQLSC32ruznjgr76YmrFQK6J//Q0=", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Id = _t, Sucursal = _t, Texto = _t, Nombre = _t, Delegado = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Id", Int64.Type}, {"Sucursal", Int64.Type}, {"Texto", type text}, {"Nombre", type text}, {"Delegado", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegación
+

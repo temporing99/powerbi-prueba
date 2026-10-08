@@ -1,0 +1,95 @@
+table DunTrabaj
+	lineageTag: 4e985278-9669-4d02-82a8-e8ee6804acf5
+
+	column cttrabajador
+		dataType: int64
+		formatString: 0
+		lineageTag: 71791e81-dfde-4a61-b3e5-093ce6105a00
+		summarizeBy: none
+		sourceColumn: cttrabajador
+
+		annotation SummarizationSetBy = Automatic
+
+	column trsexo
+		dataType: string
+		lineageTag: 046fa9b6-f466-4811-8172-4441afb3a96f
+		summarizeBy: none
+		sourceColumn: trsexo
+
+		annotation SummarizationSetBy = Automatic
+
+	column trfechanac
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: e031be06-b59c-4c6c-88a0-d6a5c552a4a5
+		summarizeBy: none
+		sourceColumn: trfechanac
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column trnacionalidad
+		dataType: string
+		lineageTag: b4b8c4a2-8e2f-4d9b-9b2e-c2aeaf63478f
+		summarizeBy: none
+		sourceColumn: trnacionalidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column trdiscapacidad
+		dataType: int64
+		formatString: 0
+		lineageTag: 6560da80-d8d6-4461-9543-b4cc8ed54a39
+		summarizeBy: sum
+		sourceColumn: trdiscapacidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column trnombrecompleto
+		dataType: string
+		lineageTag: 33714dd2-f088-4dbb-99f3-5d4ed6afe24a
+		summarizeBy: none
+		sourceColumn: trnombrecompleto
+
+		annotation SummarizationSetBy = Automatic
+
+	column Telefono
+		dataType: string
+		lineageTag: 4f26a26a-a140-4cf4-a1c1-46660ca8d466
+		summarizeBy: none
+		sourceColumn: Telefono
+
+		annotation SummarizationSetBy = Automatic
+
+	column tremail
+		dataType: string
+		lineageTag: 92045264-7e7a-4f7c-9c60-fc45f30aa577
+		summarizeBy: none
+		sourceColumn: tremail
+
+		annotation SummarizationSetBy = Automatic
+
+	column Años
+		dataType: double
+		lineageTag: 7450c7ee-e7bb-408d-88fa-3a1a0c1a4314
+		summarizeBy: none
+		sourceColumn: Años
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition DunTrabaj-303ed933-69bb-4c39-9a8b-2c662492ac0c = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("10.10.138.5\TEMPORING", "no3004", [Query="SELECT DISTINCT#(lf)    contra.cttrabajador,#(lf)    trnombrecompleto,#(lf)    CASE#(lf)        WHEN trabajador.trtelefmovil IS NOT NULL#(lf)             AND LTRIM(RTRIM(trabajador.trtelefmovil)) <> ''#(lf)             AND LEFT(LTRIM(RTRIM(trabajador.trtelefmovil)), 1) IN ('6','7')#(lf)            THEN LTRIM(RTRIM(trabajador.trtelefmovil))#(lf)        WHEN trabajador.trtelefono IS NOT NULL#(lf)             AND LTRIM(RTRIM(trabajador.trtelefono)) <> ''#(lf)             AND LEFT(LTRIM(RTRIM(trabajador.trtelefono)), 1) IN ('6','7')#(lf)            THEN LTRIM(RTRIM(trabajador.trtelefono))#(lf)        ELSE NULL#(lf)    END AS Telefono,#(lf)#(tab)trabajador.tremail,#(lf)    trabajador.trsexo,#(lf)    trabajador.trfechanac,#(lf)    trabajador.trnacionalidad,#(lf)    ((CONVERT(decimal(10,2), (GETDATE() - trabajador.trfechanac)))) / 365 AS Años,#(lf)    trdiscapacidad#(lf)FROM contra#(lf)INNER JOIN trabajador#(lf)    ON contra.ctempresa = trabajador.trempresa#(lf)   AND contra.cttrabajador = trabajador.trtrabajador#(lf)INNER JOIN centros#(lf)    ON contra.ctempresa = centros.ceempresa#(lf)   AND contra.ctcentro = centros.cecentro#(lf)WHERE ctempresa = 04#(lf)  AND (contra.ctfechafinreal IS NULL OR YEAR(contra.ctfechafinreal) >= 2023)#(lf)and ctcentro <> 9999"]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(Source,{{"trfechanac", type date}, {"trdiscapacidad", Int64.Type}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegación
+

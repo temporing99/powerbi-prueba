@@ -1,0 +1,71 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "0021a08194d0105116a0",
+  "position": {
+    "x": 660.47695832979718,
+    "y": 434.524314690656,
+    "z": 4000,
+    "height": 152.95255877111092,
+    "width": 368.47661885767633,
+    "tabOrder": 4000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Duncontra"
+                    }
+                  },
+                  "Property": "Dun TrabActivos"
+                }
+              },
+              "queryRef": "Duncontra.Dun TrabActivos",
+              "nativeQueryRef": "Dun TrabActivos"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Duncontra"
+                  }
+                },
+                "Property": "Dun TrabActivos"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
