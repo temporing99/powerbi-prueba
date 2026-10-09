@@ -119,9 +119,8 @@ table contratos
 		lineageTag: 435b2cd7-ff3e-4095-9684-576f47a98996
 
 	measure AvPasYear = AVERAGEX(VALUES(Calendario[Date]),[AsignacionesAA])
+		formatString: 0
 		lineageTag: f48e6b61-a1fc-4ff5-8646-9f0c67d01d66
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure %AntYear = ([AvWeek]-[AvPasYear])/[AvPasYear]
 		formatString: 0.00\ %;-0.00\ %;0.00\ %
